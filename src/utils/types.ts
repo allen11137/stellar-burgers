@@ -26,6 +26,7 @@ export type TOrder = {
   ingredients: string[];
 };
 
+
 export type TOrdersData = {
   orders: TOrder[];
   total: number;
