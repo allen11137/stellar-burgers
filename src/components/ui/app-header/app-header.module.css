@@ -21,7 +21,7 @@
 }
 
 .link_active {
-  color: var(--text-primary-color);
+  color: var(--text-active-color);
 }
 
 .link_position_last {
@@ -34,4 +34,9 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
+}
+
+.logo_active {
+  color: var(--text-active-color);
+  background-color: var(--text-active-color);
 }

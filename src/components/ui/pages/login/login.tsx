@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
 import {
-  Input,
   Button,
+  Input,
   PasswordInput
 } from '@zlden/react-developer-burger-ui-components';
-import styles from '../common.module.css';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../common.module.css';
 import { LoginUIProps } from './type';
 
 export const LoginUI: FC<LoginUIProps> = ({
@@ -49,11 +49,9 @@ export const LoginUI: FC<LoginUIProps> = ({
               Войти
             </Button>
           </div>
-          {errorText && (
-            <p className={`${styles.error} text text_type_main-default pb-6`}>
-              {errorText}
-            </p>
-          )}
+          <p className={`${styles.error} text text_type_main-default pb-6`}>
+            {errorText}
+          </p>
         </>
       </form>
       <div className={`pb-4 ${styles.question} text text_type_main-default`}>
