@@ -26,8 +26,8 @@ export const slice = createSlice({
           : state.ingredients.push(payload);
       },
     },
-    deleteIngredient: (state, { payload }: PayloadAction<number>) => {
-      state.ingredients.splice(payload, 1);
+    deleteIngredient: (state, { payload }: PayloadAction<string>) => {
+      state.ingredients = state.ingredients.filter(item => item.id !== payload);
     },
     moveIngredient: (
       state,

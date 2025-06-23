@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from '../../services/store';
 import { useState, FC, SyntheticEvent } from 'react';
 import { signInUser } from '../../slices/userProfileSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginUI } from '@ui-pages';
 
 export const Login: FC = () => {
@@ -11,21 +11,18 @@ export const Login: FC = () => {
     const error    = useSelector((state) => state.user.error);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
         
-        try {
-            dispatch(signInUser({ email, password }))
-                .unwrap()
-                .then(() => {
-                    navigate('/', { replace: true });
-                })
-                .catch(() => {});
-        } 
-        catch (err) {
-            console.log(err);
-        }
+        dispatch(signInUser({ email, password }))
+            .unwrap()
+            .then(() => {
+                const from = location.state?.from?.pathname || '/profile';
+                navigate(from, { replace: true });
+            })
+            .catch(() => {});
     };
 
     return (
