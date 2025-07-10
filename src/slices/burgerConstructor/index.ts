@@ -2,12 +2,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import { TConstructorIngredient, TIngredient } from '../../utils/types';
 
-type BurgerConstructorState = {
+export type BurgerConstructorState = {
   ingredients: TConstructorIngredient[];
   bun: TIngredient | null;
 };
 
-const initialState: BurgerConstructorState = {
+export const initialState: BurgerConstructorState = {
   ingredients: [],
   bun: null,
 };
@@ -49,4 +49,4 @@ export const {
   clearAllIngredients,
 } = slice.actions;
 
-export default slice.reducer;
+export const creatorReducer = slice.reducer;

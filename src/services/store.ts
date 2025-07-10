@@ -5,13 +5,13 @@ import {
   useSelector as reduxSelector
 } from 'react-redux';
 
-import ingredientsReducer from '../slices/ingredients';
-import feedReducer from '../slices/orderFeedSlice';
-import ordersReducer from '../slices/ordersHistory';
-import userReducer from '../slices/userProfileSlice';
-import creatorReducer from '../slices/burgerConstructor';
+import {ingredientsReducer} from '../slices/ingredients';
+import {feedReducer} from '../slices/orderFeedSlice';
+import {ordersReducer} from '../slices/ordersHistory';
+import {userReducer} from '../slices/userProfileSlice';
+import {creatorReducer} from '../slices/burgerConstructor';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   ingredients: ingredientsReducer,
   feeds: feedReducer,
   orders: ordersReducer,
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   creator: creatorReducer
 });
 
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production'
 });
