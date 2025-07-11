@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, SerializedError } from '@reduxjs/toolkit';
 import { TUser, RequestStatus } from '../../utils/types';
 import { setCookie, deleteCookie } from '../../utils/cookie';
-import { loginUserApi, getUserApi, logoutApi, registerUserApi, updateUserApi, TLoginData, TRegisterData } from '@api';
+import { loginUserApi, getUserApi, logoutApi, registerUserApi, updateUserApi, TLoginData, TRegisterData } from '../../utils/burger-api';
 
 type TUserProfile = {
   isAuthChecked: boolean;
@@ -11,7 +11,7 @@ type TUserProfile = {
   requestStatus: RequestStatus;
 };
 
-const initialState: TUserProfile = {
+export const initialState: TUserProfile = {
   isAuthChecked: false,
   isAuthenticated: false,
   data: null,
@@ -129,4 +129,4 @@ const userSlice = createSlice({
 
 export const { selectUserData, selectUserLoading, selectAuthChecked, selectAuthenticated, selectError } = userSlice.selectors;
 export const { verifyAuth, clearUser, updateUserData } = userSlice.actions;
-export default userSlice.reducer;
+export const userReducer = userSlice.reducer;
