@@ -24,3 +24,4 @@ export const ModalUI: FC<TModalUIProps> = memo(
     </>
   )
 );
+
